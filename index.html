@@ -12,23 +12,15 @@
       AFRAME.registerComponent('controlador-video', {
         init: function () {
           const video = document.querySelector('#mi-video');
-          
-          this.el.addEventListener('targetFound', event => {
-            video.play().catch(err => {
-              console.log("Interaccion requerida", err);
-            });
-          });
-          
-          this.el.addEventListener('targetLost', event => {
-            video.pause();
-          });
+          this.el.addEventListener('targetFound', () => { video.play().catch(e => console.log(e)); });
+          this.el.addEventListener('targetLost', () => { video.pause(); });
         }
       });
     </script>
     
     <style>
       body { margin: 0; overflow: hidden; background-color: #000000; }
-      .mindar-ui-scanning, .mindar-ui-loading { display: none !important; visibility: hidden !important; }
+      .mindar-ui-scanning, .mindar-ui-loading, .mindar-ui-compatibility { display: none !important; }
     </style>
   </head>
   
