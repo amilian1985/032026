@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Video RA con MindAR</title>
     
-    <!-- CORRECCIÓN 1: Importación correcta de las librerías necesarias -->
     <script src="https://aframe.io"></script>
     <script src="https://jsdelivr.net"></script>
     
@@ -25,7 +24,6 @@
     
     <style>
       body { margin: 0; overflow: hidden; background-color: #000000; }
-      /* Esto oculta las interfaces por defecto de MindAR como solicitaste */
       .mindar-ui-scanning, .mindar-ui-loading, .mindar-ui-compatibility { display: none !important; }
     </style>
   </head>
@@ -44,7 +42,6 @@
       
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
-      <!-- CORRECCIÓN 2 y 3: Se añade el target de MindAR vinculando el controlador del video -->
       
           <a-video src="#mi-video" width="1" height="0.56" position="0 0 0" rotation="0 0 0"></a-video>
       
