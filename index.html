@@ -15,7 +15,7 @@
           
           this.el.addEventListener('targetFound', event => {
             video.play().catch(err => {
-              console.log("Interaccion requerida", err);
+              console.log("Se requiere un clic en la pantalla antes de reproducir", err);
             });
           });
           
@@ -27,12 +27,12 @@
     </script>
     
     <style>
-      body { margin: 0; overflow: hidden; }
+      body { margin: 0; overflow: hidden; background-color: #000; }
     </style>
   </head>
   
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiLoading: yes; uiScanning: yes; uiError: yes;" 
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiLoading: no; uiScanning: no; uiError: yes;" 
              color-space="sRGB" 
              renderer="colorManagement: true, physicallyCorrectLights: true" 
              vr-mode-ui="enabled: false" 
