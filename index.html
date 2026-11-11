@@ -8,20 +8,18 @@
   </head>
   <body>
 
+    <!-- Añadimos una etiqueta de video HTML oculta para streaming directo -->
+    <video id="videoPintura" src="./032026.mp4" preload="auto" loop="true" playsinline webkit-playsinline muted style="display:none;"></video>
+
     <a-scene 
-      mindar-image="imageTargetSrc: ./targets.mind;" 
+      mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.001; filterBeta: 1000;" 
       vr-mode-ui="enabled: false" 
       device-orientation-permission-ui="enabled: false">
       
-      <a-assets>
-        <!-- Vinculamos tu archivo de video exacto -->
-        <video id="videoPintura" src="./032026.mp4" preload="auto" loop="true" playsinline webkit-playsinline muted></video>
-      </a-assets>
-
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       
-        <!-- El plano de video que se superpone a la pintura -->
+        <!-- Vinculamos directamente el ID del video oculto -->
         <a-video src="#videoPintura" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-video>
       
 
@@ -31,9 +29,11 @@
       const target = document.querySelector('#contenedorTarget');
       const video = document.querySelector('#videoPintura');
 
-      // Control de reproducción automática al detectar/perder la pintura
+      // Intentar forzar la carga inicial del video
+      video.load();
+
       target.addEventListener("targetFound", () => {
-        video.play();
+        video.play().catch(err => console.log("Error al reproducir:", err));
       });
 
       target.addEventListener("targetLost", () => {
