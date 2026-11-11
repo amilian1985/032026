@@ -12,8 +12,12 @@
       AFRAME.registerComponent('controlador-video', {
         init: function () {
           const video = document.querySelector('#mi-video');
-          this.el.addEventListener('targetFound', () => { video.play().catch(e => console.log(e)); });
-          this.el.addEventListener('targetLost', () => { video.pause(); });
+          this.el.addEventListener('targetFound', () => { 
+            video.play().catch(e => console.log("Permiso requerido", e)); 
+          });
+          this.el.addEventListener('targetLost', () => { 
+            video.pause(); 
+          });
         }
       });
     </script>
