@@ -1,21 +1,22 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://jsdelivr.net"></script>
+    <script src="https://aframe.io"></script>
+    <script src="https://jsdelivr.net"></script>
   </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <video id="miVideo" src="./032026.mp4" preload="auto" loop="true" autoplay="true" muted="true" playsinline></video>
+        <video id="miVideo" src="./032026.mp4" preload="auto" loop="true" autoplay="true" muted="true" webkit-playsinline playsinline></video>
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-controls>
+      
       
         <a-video src="#miVideo" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-video>
       
-
     </a-scene>
   </body>
 </html>
